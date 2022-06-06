@@ -18,7 +18,7 @@ public class UDPServer {
         // convert data into byte array
         byte[] b2 = Integer.toString(result).getBytes();
         InetAddress ia = InetAddress.getLocalHost();
-        // create datagram packet
+        // create datagram packet for sending through port
         DatagramPacket dp1 = new DatagramPacket(b2, b2.length, ia, dp.getPort());
         ds.send(dp1);
     }

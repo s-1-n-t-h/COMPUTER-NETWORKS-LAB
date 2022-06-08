@@ -1,3 +1,4 @@
+package CRC;
 import java.util.Scanner;
 
 class CRC {

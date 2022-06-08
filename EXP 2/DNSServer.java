@@ -1,4 +1,5 @@
 
+package DNS;
 import java.net.ServerSocket;
 import java.io.BufferedReader;
 import java.net.Socket;

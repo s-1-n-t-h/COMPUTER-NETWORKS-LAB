@@ -1,3 +1,4 @@
+package Dijkstra;
 import java.util.*;
 
 class Node implements Comparator<Node>

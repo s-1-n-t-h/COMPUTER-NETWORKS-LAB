@@ -1,4 +1,4 @@
-package BITSTUFFING;
+package STUFFING;
 import java.util.*;
 class dataFrame {
     public static void main(String[] args)

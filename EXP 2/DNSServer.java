@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 class DNSServer {
     public static void main(String... args) throws Exception{
 
-        String[] domainNames = {"amazon.in","apple.com","flipkart.com","google.com"};
+        String[] domainNames = {"www.amazon.in","www.apple.com","www.flipkart.com","wwww.google.com"};
         String[] ipAddress = {"52.95.120.67","17.253.144.10","163.53.78.110","173.194.198.139"};
 
         ServerSocket ss = new ServerSocket(6363);
@@ -23,7 +23,7 @@ class DNSServer {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(s.getInputStream()));
         String domainName = br.readLine();
-        System.out.println("Domain Anme received: " + domainName);
+        System.out.println("Domain Name received: " + domainName);
         
         for( int i = 0; i<domainNames.length; i++){
             if(domainName.equals(domainNames[i])){

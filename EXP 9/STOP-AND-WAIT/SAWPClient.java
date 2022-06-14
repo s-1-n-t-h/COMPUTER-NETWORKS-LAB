@@ -47,6 +47,7 @@ class SAWPClient{
             out.println(data[i]+Integer.toString(frameNo)); // sends data into stream
             out.flush(); // forcefull pushes data drom stream 
             i++; frameNo++;
+            Thread.sleep(500);
             ackNo = Integer.parseInt(br.readLine());
             System.out.println("\nReceived Acknowledgement for frame: "+ackNo);
         }while((frameNo == ackNo ) && i<numberOfFramesToBeSend);

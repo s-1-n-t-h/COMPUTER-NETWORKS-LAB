@@ -49,7 +49,7 @@ class Dijkstra{
                 }
             }
         }
-        System.out.println("The distances from source "+s+" are: ");
+        System.out.print("The distances from source "+s+" are: ");
         for(int i =0 ; i < N; i++){
             System.out.print(dist[i]+ " ");
         }        

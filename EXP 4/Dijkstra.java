@@ -34,6 +34,7 @@ class Dijkstra{
         dist[s] = 0; // making the distacne from source to itself as 0
         
         // priority queue for storing distance updates nodes
+        // PriorityQueue(int initialCapacity, Comparator<E> comparator)
         PriorityQueue<Node> pq = new PriorityQueue<Node>(N, new Node());
 
         pq.add(new Node(s,0));
@@ -58,7 +59,7 @@ class Dijkstra{
         // no of nodes in the graph
         int n = 5;
         // creating an Adjacency List of each data item of type Node
-        ArrayList<ArrayList<Node>> adj = new ArrayList<ArrayList<Node>>();
+        ArrayList<ArrayList<Node>> adj = new ArrayList<ArrayList<Node>>(); 
 
         for(int i = 0 ; i < n; i++)
             adj.add(new ArrayList<Node>());

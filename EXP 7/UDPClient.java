@@ -1,33 +1,35 @@
 package UDP;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
+import java.io.*;
+import java.net.*;
+
 class UDPClient{
-    public static void main(String[] args) throws Exception{
-       
-        // data is sent using datagram socket
-        DatagramSocket ds = new DatagramSocket();
-        
-        int i = 16;
-  
-        // data should in bytes 
-        String data = Integer.toString(i);
-        byte[] b = data.getBytes();
+    static DatagramSocket ds;
+    static DatagramPacket dp;
+    static BufferedReader br;
+    static InetAddress ia;
+    static byte[] b = new byte[1024];
+    static int cport = 6363, sport = 6464;
 
-        // for getting host address
-        InetAddress ia = InetAddress.getLocalHost();
-        // pass data, data length, IP address, port number using datagram packet
-        DatagramPacket dp = new DatagramPacket(b, b.length, ia, 6363);
-        System.out.println("\nData Sent: "+i);
-        ds.send(dp); // pass the packet through socket
-
-        /// receive data from server
-        byte[] b1 = new byte[1024];
-        // creating objct for copying the data from packet
-        DatagramPacket dp1 = new DatagramPacket(b1,b1.length);
-        ds.receive(dp1);// receive the packet from server
-
-        System.out.println("\nData received from server: " + new String(dp1.getData()));
-
+    public static void main(String... args) throws Exception{
+        ds = new DatagramSocket(cport);
+        dp = new DatagramPacket(b,b.length);
+        br = new BufferedReader(new InputStreamReader(System.in));
+        ia = InetAddress.getLocalHost();
+        System.out.println("Client is Running ... Type'STOP' to Quit");
+        while(true){
+            String str = new String(br.readLine());
+            b = str.getBytes();
+            if( str.equals("STOP"))
+            {
+                System.out.println("Terminated...");
+                ds.send(new DatagramPacket(b,b.length,ia,sport));
+                break;
+            }
+            ds.send(new DatagramPacket(b, b.length,ia,sport));
+            ds.receive(dp);
+            str = new String(dp.getData());
+            System.out.println("Server: "+str);
+        }
     }
+
 }

@@ -1,4 +1,4 @@
-package DVR;
+// package DVR;
 import java.util.*;
 
 class Node{
@@ -56,7 +56,7 @@ public class DVRA {
         }while(flag==1);
         // printing routing table at each node
         for(int i = 0; i< n ; i++){
-            System.out.println("Router infor for router: "+(i+1));
+            System.out.println("Router info for router: "+(i+1));
             System.out.println("Dest\tNext Hop\tDist");
             for(int j = 0; j < n; j++){
                 System.out.println((j+1)+"\t"+(route[i].from[j]+1)+"\t\t"+route[i].dist[j]);

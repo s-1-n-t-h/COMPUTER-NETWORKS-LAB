@@ -28,8 +28,9 @@ public class DVRA {
         }
         System.out.println("Enter distance Matrix: ");
         for( int i = 0; i < n; i++){ // selectiong each node
+            String[] inputArray = sc.nextLine().split(" ",0);
             for(int j = 0; j < n; j++){ // selecting each node in netowrk
-                distMatrix[i][j] = Integer.parseInt(sc.nextLine());
+                distMatrix[i][j] = Integer.parseInt(inputArray[j]);
                 if( i == j){
                     distMatrix[i][j] = 0;
                 }
